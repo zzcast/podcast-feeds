@@ -20,8 +20,11 @@ def is_reading(text):
     return 'читает сергей бунтман' in text or 'читалка' in text
 
 
+GVOZD_PEOPLE = ('венедиктов', 'белковск', 'кашин', 'латынин', 'левиев')
+
+
 def gvozd(text):
-    return 'венедиктов' in text or 'белковск' in text
+    return any(name in text for name in GVOZD_PEOPLE)
 
 
 def diletant(text):
@@ -35,7 +38,7 @@ def chitalka(text):
 
 # chitalka-v2.xml is a second published URL for the same feed; both stay in sync so neither subscription goes stale.
 FEEDS = (
-    (('zhivoy-gvozd.xml',), 'https://cloud.mave.digital/41353', 'Живой Гвоздь — избранное', 'Выпуски с Венедиктовым и Белковским.', 'zhivoy-gvozd.png', gvozd),
+    (('zhivoy-gvozd.xml',), 'https://cloud.mave.digital/41353', 'Живой Гвоздь — избранное', 'Выпуски с Венедиктовым, Белковским, Кашиным, Латыниной и Левиевым.', 'zhivoy-gvozd.png', gvozd),
     (('diletant.xml',), 'https://cloud.mave.digital/41365', 'Дилетант', 'Дилетант, включая Параграф 43, без чтений Сергея Бунтмана и «Настоящего полковника».', 'diletant.png', diletant),
     (('chitalka.xml', 'chitalka-v2.xml'), 'https://cloud.mave.digital/41365', 'Читалка — Дилетант', 'Выпуски чтения Сергея Бунтмана, кроме Параграфа 43.', 'chitalka.png', chitalka),
 )
