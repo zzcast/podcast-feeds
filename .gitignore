@@ -1,0 +1,42 @@
+# zzinit:begin -- managed block; re-run zzinit to refresh
+# Agent state. The dir/* form (never dir/) keeps a `!` re-include possible:
+# git cannot re-include a file whose parent DIRECTORY is excluded.
+.claude/*
+.codex/*
+.cursor/*
+.gemini/*
+.agents/*
+.zzai/*
+
+# Scratch. Also excluded from the iCloud mirror by configs/backup.sh, so
+# nothing here has an off-machine copy. That is what 'working files' means.
+working-files/*
+out/*
+
+# Binary artifacts. svg and csv are omitted on purpose: text, and often source.
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.bmp
+*.tiff
+*.ico
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.xlsm
+*.xlam
+*.ppt
+*.pptx
+*.key
+*.pages
+*.numbers
+*.odt
+*.ods
+# zzinit:end
+
+# Feed artwork is served from raw.githubusercontent.com, so root PNGs are source.
+!/*.png
